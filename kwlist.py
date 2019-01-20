@@ -1,13 +1,13 @@
-import sys, string
+import sys
 from argparse import ArgumentParser
 
 
-lower = string.ascii_lowercase  # 'abcdefghijklmnopqrstuvwxyz'
+lower = 'abcdefghijklmnopqrstuvwxyz'
 #upper = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 #digit = string.digits           # '0123456789'
 #punc = string.punctuation       # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
-class Keyword:
+class Wordlist:
     def __init__(self):
         self.ins = argparse()
         if self.ins['chars'] is not None:
@@ -59,16 +59,16 @@ class Keyword:
 
 def argparse():
     parser = ArgumentParser()
-    parser.add_argument('-m', '--min', help='minimum word size', type=int)
-    parser.add_argument('-M', '--max', help='Maximum word size', type=int)
+    parser.add_argument('-m', '--min', help='Minimum wordlist length', type=int)
+    parser.add_argument('-M', '--max', help='Maximum wordlist length', type=int)
     parser.add_argument('-o', '--out', help='Saves output to specified file')
-    parser.add_argument('-c', '--chars', help='select a charset(default: "lower"', type=str)
+    parser.add_argument('-c', '--chars', help='select a charset', type=str)
     args = vars(parser.parse_args())
     return args
 
 if __name__=="__main__":
     argparse()
-    ex = Keyword()
+    ex = Wordlist()
     ex.main()
     if ex.out != sys.stdout:
         ex.out.close()
