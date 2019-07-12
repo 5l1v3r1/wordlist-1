@@ -1,11 +1,12 @@
 import sys
 from argparse import ArgumentParser
 
-
 lower = 'abcdefghijklmnopqrstuvwxyz'
-#upper = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-#digit = string.digits           # '0123456789'
-#punc = string.punctuation       # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+
+# upper = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# digit = string.digits           # '0123456789'
+# punc = string.punctuation       # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 # test
 
 class Wordlist:
@@ -32,7 +33,7 @@ class Wordlist:
         for i in range(self.minlen):
             s = "char{}".format(i + 1)
             self.dic[s] = 0
-        for i in range(len(self.char)**self.minlen):
+        for i in range(len(self.char) ** self.minlen):
             self.percent += 1
             if self.out != sys.stdout:
                 sys.stdout.write("%" + str(self.percent * 100 / self.perc_total)[:4] + '\r')
@@ -58,6 +59,7 @@ class Wordlist:
         else:
             self.character()
 
+
 def argparse():
     parser = ArgumentParser()
     parser.add_argument('-m', '--min', help='Minimum wordlist length', type=int)
@@ -67,7 +69,8 @@ def argparse():
     args = vars(parser.parse_args())
     return args
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     argparse()
     ex = Wordlist()
     ex.main()
