@@ -37,14 +37,14 @@ class Wordlist:
             if self.out != sys.stdout:
                 sys.stdout.write("%" + str(self.percent * 100 / self.perc_total)[:4] + '\r')
                 sys.stdout.flush()
-            write = "".join(self.char[self.dic["char{}".format(k+1)]] for k in range(self.minlen))
+            write = "".join(self.char[self.dic[f"char{k+1}"]] for k in range(self.minlen))
             print(write, file=self.out)
             self.dic['char{}'.format(self.minlen)] += 1
             for j in range(self.minlen):
-                if self.dic['char{}'.format(self.minlen - j)] == len(self.char):
-                    self.dic['char{}'.format(self.minlen - j)] = 0
+                if self.dic[f'char{self.minlen - j}'] == len(self.char):
+                    self.dic[f'char{self.minlen - j}'] = 0
                     if (self.minlen - j - 1) != 0:
-                        self.dic['char{}'.format(self.minlen - j - 1)] += 1
+                        self.dic[f'char{self.minlen - j - 1}'] += 1
                     else:
                         continue
 
