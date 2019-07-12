@@ -6,6 +6,7 @@ lower = 'abcdefghijklmnopqrstuvwxyz'
 #upper = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 #digit = string.digits           # '0123456789'
 #punc = string.punctuation       # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+# test
 
 class Wordlist:
     def __init__(self):
